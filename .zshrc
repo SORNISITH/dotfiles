@@ -10,6 +10,7 @@ export VISUAL='nvim'
 # Zsh configuration
 # -----------------
 #
+alias tmuxrc="nvim ~/dotfiles/.config/tmux/tmux.conf"
 alias dot="cd ~/dotfiles && nvim"
 alias vi="nvim"
 alias zshrc="nvim ~/dotfiles/.zshrc"
