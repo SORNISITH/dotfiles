@@ -1,0 +1,3 @@
+ZSH   BASH
+
+alias all
