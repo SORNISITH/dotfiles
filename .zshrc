@@ -11,8 +11,8 @@ export VISUAL='nvim'
 # -----------------
 #
 alias vi="nvim"
-alias zshrc="nvim ~/.zshrc"
-alias zimrc="nvim ~/.zimrc"
+alias zshrc="nvim ~/dotfiles/.zshrc"
+alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
 alias proj="cd ~/project/ && nvim"
 alias vim="nvim"
