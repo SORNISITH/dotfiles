@@ -1,36 +1,49 @@
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by interactive shells
-#
-eval "$(ssh-agent -s)"
-export LANG=en_US.UTF-8
+### EXPORT ###
 export EDITOR='nvim'
-export VISUAL='nvim'
-# -----------------
-# Zsh configuration
-# -----------------
-#
-alias dot="cd ~/dotfiles && nvim"
-alias vi="nvim"
-alias zshrc="nvim ~/dotfiles/.zshrc"
-alias zimrc="nvim ~/dotfiles/.zimrc"
-alias vimrc="cd ~/.config/nvim && nvim"
-alias proj="cd ~/project/ && nvim"
-alias vim="nvim"
-alias cdd="cd ~/Desktop/ && ls"
-alias tree='cd . && ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
+export VISUAL='nano'
+export HISTCONTROL=ignoreboth:erasedups
+export PAGER='most'
+export LANG=en_US.UTF-8
+export LANG=km_KH.UTF-8
 
+
+#Ibus settings if you need them
+#type ibus-setup in terminal to change settings and start th:quickly:quickle daemon
+#delete the hashtags of the next lines and restart
+#export GTK_IM_MODULE=ibus
+#export XMODIFIERS=@im=dbus
+#export QT_IM_MODULE=ibus
+# eval "$(ssh-agent -s)"
+
+# PS1='[\u@\h \W]\$ '
+eval "$(starship init bash)"
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias paste='xclip -o -selection clipboard'
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
+
+#ignore upper and lowercase when TAB completion
+bind "set completion-ignore-case on"
+
+### ALIASES ###
+alias runcpp='~/Desktop/exc_cpp.sh ./main.cpp'
+alias obs='flatpak run com.obsproject.Studio'
+#list
 alias ls='ls --color=auto'
 alias la='ls -a'
-#alias ll='ls -al'
+alias ll='ls -alFh'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 alias listdir="ls -d */ > list"
-
-#run programing
-alias tele="flatpak run org.telegram.desktop"
-
-alias obs="flatpak run com.obsproject.Studio"
+alias ssrc='vim ~/.config/starship.toml'
 #pacman
 alias sps='sudo pacman -S'
 alias spr='sudo pacman -R'
@@ -39,6 +52,10 @@ alias sprdd='sudo pacman -Rdd'
 alias spqo='sudo pacman -Qo'
 alias spsii='sudo pacman -Sii'
 
+#edit nvim and nvim
+alias vimrc='cd ~/.config/nvim && nvim'
+alias cpp='cd ~/project/cpp && nvim'
+
 # show the list of packages that need this package - depends mpv as example
 function_depends()  {
     search=$(echo "$1")
@@ -46,7 +63,7 @@ function_depends()  {
     }
 
 alias depends='function_depends'
-
+alias vim='nvim'
 #fix obvious typo's
 alias cd..='cd ..'
 alias pdw='pwd'
@@ -96,10 +113,10 @@ alias userlist="cut -d: -f1 /etc/passwd | sort"
 alias merge="xrdb -merge ~/.Xresources"
 
 # Aliases for software managment
-# pacman
-alias pacman="sudo pacman --color auto"
-alias update="sudo pacman -Syyu"
-alias upd="sudo pacman -Syyu"
+# pacman or pm
+alias pacman='sudo pacman --color auto'
+alias update='sudo pacman -Syyu'
+alias upd='sudo pacman -Syyu'
 
 # paru as aur helper - updates everything
 alias pksyua="paru -Syu --noconfirm"
@@ -114,7 +131,10 @@ alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 #grub issue 08/2022
+alias install-grub-efi="sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArcoLinux"
 
+#add new fonts
+alias update-fc='sudo fc-cache -fv'
 
 #copy/paste all content of /etc/skel over to home folder - backup of config created - beware
 #skel alias has been replaced with a script at /usr/local/bin/skel
@@ -123,8 +143,8 @@ alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
 #copy shell configs
-alias cb='cp /etc/skel/.bashrc ~/.bashrc && echo "Copied."'
-alias cz='cp /etc/skel/.zshrc ~/.zshrc && exec zsh'
+alias cb='cp /etc/skel/.bashrc ~/.bashrc && exec bash'
+alias cz='cp /etc/skel/.zshrc ~/.zshrc && echo "Copied."'
 alias cf='cp /etc/skel/.config/fish/config.fish ~/.config/fish/config.fish && echo "Copied."'
 
 #switch between bash and zsh
@@ -193,13 +213,14 @@ alias vmware-start="sudo systemctl enable --now vmtoolsd.service"
 alias sv="sudo systemctl enable --now vmtoolsd.service"
 
 #shopt
-#shopt -s autocd # change to named directory
-#shopt -s cdspell # autocorrects cd misspellings
-#shopt -s cmdhist # save multi-line commands in history as single line
-#shopt -s dotglob
-#shopt -s histappend # do not overwrite history
-#shopt -s expand_aliases # expand aliases
+shopt -s autocd # change to named directory
+shopt -s cdspell # autocorrects cd misspellings
+shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s dotglob
+shopt -s histappend # do not overwrite history
+shopt -s expand_aliases # expand aliases
 
+alias tele="flatpak run org.telegram.desktop"
 #youtube download
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "
 alias yta-best="yt-dlp --extract-audio --audio-format best "
@@ -262,6 +283,7 @@ alias nb="$EDITOR ~/.bashrc"
 alias nz="$EDITOR ~/.zshrc"
 alias nf="$EDITOR ~/.config/fish/config.fish"
 alias nneofetch="$EDITOR ~/.config/neofetch/config.conf"
+alias nfastfetch="$EDITOR ~/.config/fastfetch/config.jsonc"
 alias nplymouth="sudo $EDITOR /etc/plymouth/plymouthd.conf"
 alias nvconsole="sudo $EDITOR /etc/vconsole.conf"
 alias nenvironment="sudo $EDITOR /etc/environment"
@@ -327,6 +349,7 @@ alias sr="reboot"
 
 #update betterlockscreen images
 alias bls="betterlockscreen -u /usr/share/backgrounds/arcolinux/"
+
 #give the list of all installed desktops - xsessions desktops
 alias xd="ls /usr/share/xsessions"
 alias xdw="ls /usr/share/wayland-sessions"
@@ -338,123 +361,97 @@ alias kernels="ls /usr/lib/modules"
 #am I on grub,systemd-boot or refind
 alias boot="sudo /usr/local/bin/arcolinux-boot"
 
-#
-# History
-
-# Remove older command from the history if a duplicate is to be added.
-setopt HIST_IGNORE_ALL_DUPS
-
-#
-# Input/output
-#
-
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -v
-
-# Prompt for spelling correction of commands.
-setopt CORRECT
-
-# Customize spelling correction prompt.
-SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-
-# Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
-
-# -----------------
-# Zim configuration
-# -----------------
-
-# Use degit instead of git as the default tool to install and update modules.
-#zstyle ':zim:zmodule' use 'degit'
-
-# --------------------
-# Module configuration
-# --------------------
-
-#
-# git
-#
-
-# Set a custom prefix for the generated aliases. The default prefix is 'G'.
-zstyle ':zim:git' aliases-prefix 'g'
-
-#
-# input
-#
-
-# Append `../` to your input for each `.` you type after an initial `..`
-#zstyle ':zim:input' double-dot-expand yes
-
-#
-# termtitle
-#
-
-# Set a custom terminal title format using prompt expansion escape sequences.
-# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# If none is provided, the default '%n@%m: %~' is used.
-#zstyle ':zim:termtitle' format '%1~'
-
-#
-# zsh-autosuggestions
-#
-
-# Disable automatic widget re-binding on each precmd. This can be set when
-# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# Customize the style that the suggestions are shown with.
-# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-
-#
-#zsh-syntax-highlighting
-#
-
-# Set what highlighters will be used.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-# Customize the main highlighter styles.
-# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
-zstyle ':zim:*' case-sensitivity sensitive
-# ------------------
-# Initialize modules
-# ------------------
-
-ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-# Download zimfw plugin manager if missing.
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  if (( ${+commands[curl]} )); then
-    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   tar xf $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
   else
-    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
-        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+    echo "'$1' is not a valid file"
   fi
-fi
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init -q
-fi
-# Initialize modules.
-source ${ZIM_HOME}/init.zsh
+}
 
-# ------------------------------
-# Post-init module configuration
-# ------------------------------
+#wayland aliases
+alias wsimplescreen="wf-recorder -a"
+alias wsimplescreenrecorder="wf-recorder -a -c h264_vaapi -C aac -d /dev/dri/renderD128 --file=recording.mp4"
 
-#
-# zsh-history-substring-search
-#
+#btrfs aliases
+alias btrfsfs="sudo btrfs filesystem df /"
+alias btrfsli="sudo btrfs su li / -t"
 
-zmodload -F zsh/terminfo +p:terminfo
-# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
-for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
-for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
-for key ('k') bindkey -M vicmd ${key} history-substring-search-up
-for key ('j') bindkey -M vicmd ${key} history-substring-search-down
-unset key
-# }}} End configuration added by Zim install
-eval "$(starship init zsh)"
+#snapper aliases
+alias snapcroot="sudo snapper -c root create-config /"
+alias snapchome="sudo snapper -c home create-config /home"
+alias snapli="sudo snapper list"
+alias snapcr="sudo snapper -c root create"
+alias snapch="sudo snapper -c home create"
+
+#Leftwm aliases
+alias lti="leftwm-theme install"
+alias ltu="leftwm-theme uninstall"
+alias lta="leftwm-theme apply"
+alias ltupd="leftwm-theme update"
+alias ltupg="leftwm-theme upgrade"
+
+#arcolinux applications
+#att is a symbolic link now
+#alias att="archlinux-tweak-tool"
+alias adt="arcolinux-desktop-trasher"
+alias abl="arcolinux-betterlockscreen"
+alias agm="arcolinux-get-mirrors"
+alias amr="arcolinux-mirrorlist-rank-info"
+alias aom="arcolinux-osbeck-as-mirror"
+alias ars="arcolinux-reflector-simple"
+alias atm="arcolinux-tellme"
+alias avs="arcolinux-vbox-share"
+alias awa="arcolinux-welcome-app"
+
+#git
+alias rmgitcache="rm -r ~/.cache/git"
+alias grh="git reset --hard"
+
+#pamac
+alias pamac-unlock="sudo rm /var/tmp/pamac/dbs/db.lock"
+
+#moving your personal files and folders from /personal to ~
+alias personal='cp -Rf /personal/* ~'
+
+#create a file called .bashrc-personal and put all your personal aliases
+#in there. They will not be overwritten by skel.
+
+[[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
+
+# reporting tools - install when not installed
+#fastfetch
+#neofetch
+#screenfetch
+#alsi
+paleofetch
+#fetch
+#hfetch
+#sfetch
+#ufetch
+#ufetch-arco
+#pfetch
+#sysinfo
+#sysinfo-retro
+#cpufetch
+#colorscript random
+#hyfetch
