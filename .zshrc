@@ -13,9 +13,9 @@ if [ -z "$TMUX" ]; then
     tmux
 fi
 #
-alias tmuxrc="nvim ~/dotfiles/.config/tmux/tmux.conf"
+alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && nvim"
-alias vi="nvim"
+alias v="nvim"
 alias zshrc="nvim ~/dotfiles/.zshrc"
 alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
