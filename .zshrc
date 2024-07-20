@@ -2,6 +2,7 @@
 #
 # User configuration sourced by interactive shells
 #
+export TERM=xterm-256color
 eval "$(ssh-agent -s)"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
@@ -16,6 +17,8 @@ fi
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && nvim"
 alias v="nvim"
+alias arc="v ~/.config/alacritty/alacritty.toml"
+
 alias zshrc="nvim ~/dotfiles/.zshrc"
 alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
