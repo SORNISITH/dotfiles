@@ -19,7 +19,7 @@ alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && nvim"
 alias v="nvim"
 alias arc="v ~/.config/alacritty/alacritty.toml"
-
+alias fastkey="xset r rate 160 30 && echo faster key"
 alias zshrc="nvim ~/dotfiles/.zshrc"
 alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
