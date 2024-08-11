@@ -24,6 +24,7 @@ alias zshrc="nvim ~/dotfiles/.zshrc"
 alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
 alias proj="cd ~/project/ && nvim"
+alias webdev="cd ~/project/js"
 alias vim="nvim"
 alias cdd="cd ~/Desktop/ && ls"
 alias tree='cd . && ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
