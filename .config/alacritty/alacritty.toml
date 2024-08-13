@@ -78,7 +78,7 @@ color = "#f5e0dc"
 size = 16
 
 [font.bold]
-family = "hack"
+family = "Jetbrainsmono nerd font"
 style = "Bold"
 
 [font.bold_italic]
@@ -86,12 +86,12 @@ family = "monospace"
 style = "Bold Italic"
 
 [font.italic]
-family = "hack"
+family = "Jetbrainsmono nerd font"
 style = "Italic"
 
 [font.normal]
-family = "Hack nerd font"
-style = "Bold"
+family = "Jetbrainsmono nerd font"
+style = "Regular"
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"
@@ -101,6 +101,8 @@ key = "F11"
 history = 50000
 
 [window]
-opacity = 1
-
+opacity = 0.9
+[window.dimensions]
+columns = 120
+lines = 30
 

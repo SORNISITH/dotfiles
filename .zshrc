@@ -7,7 +7,7 @@ eval "$(ssh-agent -s)"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export VISUAL='nvim'
- export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 # -----------------
 # Zsh configuration
 # -----------------
@@ -18,7 +18,7 @@ fi
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && nvim"
 alias v="nvim"
-alias arc="v ~/.config/alacritty/alacritty.toml"
+alias alarc="v ~/dotfiles/.config/alacritty/alacritty.toml"
 alias fastkey="xset r rate 160 30 && echo faster key"
 alias zshrc="nvim ~/dotfiles/.zshrc"
 alias zimrc="nvim ~/dotfiles/.zimrc"
