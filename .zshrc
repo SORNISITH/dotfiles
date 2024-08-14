@@ -3,7 +3,7 @@
 # User configuration sourced by interactive shells
 #
 export TERM=xterm-256color
-eval "$(ssh-agent -s)"
+#eval "$(ssh-agent -s)"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -14,7 +14,8 @@ export PATH=$HOME/.local/bin:$PATH
 if [ -z "$TMUX" ]; then
     tmux
 fi
-#
+
+alias mywork="cd ~/NZ WORK SPACE/"
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && nvim"
 alias v="nvim"

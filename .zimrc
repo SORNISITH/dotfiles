@@ -42,6 +42,7 @@ zmodule completion
 zmodule run-help
 zmodule prompt-pwd
 zmodule git-info
+zmodule pacman
 #
 # Modules that must be initialized last
 #
