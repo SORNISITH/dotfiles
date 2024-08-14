@@ -15,17 +15,17 @@ if [ -z "$TMUX" ]; then
     tmux
 fi
 
-alias mywork="cd ~/NZ WORK SPACE/"
+alias web="cd ~/nz_work_space/web-prog/"
+alias webapp="cd ~/nz_work_space/web-app/"
+alias c="cd ~/nz_work_space/c-prog/"
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
-alias dot="cd ~/dotfiles && nvim"
+alias dot="cd ~/dotfiles"
 alias v="nvim"
 alias alarc="v ~/dotfiles/.config/alacritty/alacritty.toml"
 alias fastkey="xset r rate 160 30 && echo faster key"
 alias zshrc="nvim ~/dotfiles/.zshrc"
 alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
-alias proj="cd ~/project/ && nvim"
-alias webdev="cd ~/project/js"
 alias vim="nvim"
 alias cdd="cd ~/Desktop/ && ls"
 alias tree='cd . && ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
