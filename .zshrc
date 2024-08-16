@@ -8,6 +8,10 @@ export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PATH=$HOME/.local/bin:$PATH
+if [[ -z "$TMUX" ]]; then
+  tmux attach-session -t default || tmux new-session -s default
+fi
+
 # -----------------
 # Zsh configuration
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
