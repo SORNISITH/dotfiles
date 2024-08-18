@@ -16,9 +16,9 @@ fi
 # Zsh configuration
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
-alias webrc="cd ~/nz_work_space/config-template && ll -a"
-alias webapp="cd ~/nz_work_space/web-app/ && ll -a"
+alias work="cd ~/nz_work_space/ && ll -a"
 alias c="cd ~/nz_work_space/c-prog/ && ll -a"
+alias web="cd ~/nz_work_space/web-app/ && ll -a"
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles"
 alias v="nvim"
