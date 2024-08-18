@@ -14,13 +14,14 @@ fi
 
 # -----------------
 # Zsh configuration
+
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
 alias work="cd ~/nz_work_space/ && ll -a"
 alias c="cd ~/nz_work_space/c-prog/ && ll -a"
 alias web="cd ~/nz_work_space/web-app/ && ll -a"
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
-alias dot="cd ~/dotfiles"
+alias dot="cd ~/dotfiles && ll -a"
 alias v="nvim"
 alias alarc="v ~/dotfiles/.config/alacritty/alacritty.toml"
 alias fastkey="xset r rate 160 30 && echo faster key"
