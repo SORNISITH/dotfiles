@@ -14,8 +14,7 @@ fi
 
 # -----------------
 # Zsh configuration
-alias ide="tmux split-window -h -l 35%"
-
+alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
 alias work="cd ~/nz_work_space/ && ll -a"
