@@ -1,0 +1,76 @@
+XTerm.title: xTerm
+xterm*faceName: Hack Nerd Font
+xterm*faceSize: 14
+xterm*geometry: 80x25
+*scrollBar: 0
+*saveLines: 12288
+*scrollTtyOutput: false
+*scrollWithBuffer: true
+xterm*rightScrollBar: true
+
+*scrollTtyKeypress: true
+*selectToClipboard: true
+xterm*utf8: true
+xterm*locale: true
+
+xterm*VT100.Translations: #override \
+                 Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+
+!Theme Ten
+!from web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors
+!*background: rgb:1a/1a/1a
+!*foreground: rgb:d6/d6/d6
+!*color0:     rgb:00/00/00
+!*color1:     rgb:98/56/5e
+!*color2:     rgb:66/82/5d
+!*color3:     rgb:96/91/76
+!*color4:     rgb:4d/65/85
+!*color5:     rgb:96/73/95
+!*color6:     rgb:5f/7f/7b
+!*color7:     rgb:b3/b3/b3
+!*color8:     rgb:73/73/73
+!*color9:     rgb:cf/a3/a9
+!*color10:    rgb:ca/f7/bb
+!*color11:    rgb:ff/f8/bc
+!*color12:    rgb:83/a3/be
+!*color13:    rgb:bb/a9/cf
+!*color14:    rgb:96/cc/cc
+!*color15:    rgb:ff/ff/ff
+
+! -----------------------------------------------------------------------------
+! File: gruvbox-light.xresources
+! Description: Retro groove colorscheme generalized
+! Author: morhetz <morhetz@gmail.com>
+! Source: https://github.com/morhetz/gruvbox-generalized
+! Last Modified: 6 Sep 2014
+! -----------------------------------------------------------------------------
+
+! hard contrast: *background: #f9f5d7
+*background: #fbf1c7
+! soft contrast: *background: #f2e5bc
+*foreground: #3c3836
+! Black + DarkGrey
+*color0:  #fdf4c1
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #9d0006
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #79740e
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #b57614
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #076678
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #8f3f71
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #427b58
+! LightGrey + White
+*color7:  #7c6f64
+*color15: #3c3836
