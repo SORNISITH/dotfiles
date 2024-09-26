@@ -10,13 +10,10 @@ export VISUAL='nvim'
 export PATH=$HOME/.local/bin:$PATH
 
 
-if [[ -z "$TMUX" ]]; then
-  tmux attach-session -t default || tmux new-session -s default
-fi
-
 # -----------------
 # Zsh configuration
-alias web="cd ~/nz_work_space/js/fullstack/"
+alias lv="lvim"
+alias proj="cd ~/nz_work_space/js/fullstack/"
 alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
@@ -42,7 +39,6 @@ alias ll='ls -al'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 alias listdir="ls -d */ > list"
-
 #run programing
 alias tele="flatpak run org.telegram.desktop"
 
@@ -474,3 +470,10 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/nz/.bun/_bun" ] && source "/home/nz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
