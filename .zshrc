@@ -9,10 +9,13 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PATH=$HOME/.local/bin:$PATH
 
-
+if [[ -z "$TMUX" ]]; then
+  tmux attach-session -t default || tmux new-session -s default
+fi
+source <(fzf --zsh)
 # -----------------
 # Zsh configuration
-alias lv="lvim"
+alias f="fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
 alias proj="cd ~/nz_work_space/js/fullstack/"
 alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
@@ -271,7 +274,6 @@ alias nhosts="sudo $EDITOR /etc/hosts"
 alias nhostname="sudo $EDITOR /etc/hostname"
 alias nresolv="sudo $EDITOR /etc/resolv.conf"
 alias nb="$EDITOR ~/.bashrc"
-alias nz="$EDITOR ~/.zshrc"
 alias nf="$EDITOR ~/.config/fish/config.fish"
 alias nneofetch="$EDITOR ~/.config/neofetch/config.conf"
 alias nplymouth="sudo $EDITOR /etc/plymouth/plymouthd.conf"
