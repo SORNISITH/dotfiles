@@ -9,8 +9,16 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PATH=$HOME/.local/bin:$PATH
 
-if [[ -z "$TMUX" ]]; then
-  tmux attach-session -t default || tmux new-session -s default
+# Automatically start or attach to a tmux session
+if [ -z "$TMUX" ]; then
+    # Check if there are any existing tmux sessions
+    if tmux list-sessions &>/dev/null; then
+        # Attach to the last session
+        tmux attach-session -d
+    else
+        # Start a new session
+        tmux new-session -s default
+    fi
 fi
 source <(fzf --zsh)
 # -----------------
