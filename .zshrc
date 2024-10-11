@@ -24,7 +24,6 @@ source <(fzf --zsh)
 # -----------------
 # Zsh configuration
 alias f="fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
-alias proj="cd ~/nz_work_space/js/fullstack/"
 alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
@@ -36,7 +35,7 @@ alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && ll -a"
 alias v="clear && nvim"
 alias alarc="v ~/dotfiles/.config/alacritty/alacritty.toml"
-alias fastkey="xset r rate 160 50 && echo faster  100ms with 50 word key"
+alias fastkey="xset r rate 140 60 && echo faster  100ms with 50 word key"
 alias zshrc="nvim ~/dotfiles/.zshrc"
 alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
@@ -487,3 +486,11 @@ eval "$(starship init zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/nz/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
