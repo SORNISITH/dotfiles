@@ -1,7 +1,8 @@
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
-#
+##
+export TERM=xterm-kitty
 export TERM=tmux-256color
 export TERM=xterm-256color
 #eval "$(ssh-agent -s)"
@@ -466,11 +467,9 @@ source ${ZIM_HOME}/init.zsh
 # ------------------------------
 # Post-init module configuration
 # ------------------------------
-
 #
 # zsh-history-substring-search
 #
-
 zmodload -F zsh/terminfo +p:terminfo
 # Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
 for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
@@ -495,3 +494,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#
