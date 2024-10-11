@@ -2,6 +2,7 @@
 #
 # User configuration sourced by interactive shells
 #
+export TERM=tmux-256color
 export TERM=xterm-256color
 #eval "$(ssh-agent -s)"
 export LANG=en_US.UTF-8
