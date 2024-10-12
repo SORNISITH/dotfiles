@@ -21,6 +21,11 @@ if [ -z "$TMUX" ]; then
 fi
 source <(fzf --zsh)
 # -----------------
+function rt() {
+    # Check if a tmux server is running
+    tmux source-file ~/.tmux.conf      # Source the configuration file
+    echo "Tmux restarted and configuration sourced."
+}
 # Zsh configuration
 alias f="fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
 alias ide="~/ide.sh"
