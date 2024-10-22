@@ -455,3 +455,4 @@ paleofetch
 #cpufetch
 #colorscript random
 #hyfetch
+. "$HOME/.cargo/env"

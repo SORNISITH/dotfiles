@@ -7,7 +7,11 @@ export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PATH=$HOME/.local/bin:$PATH
-
+export PREFIX=$([ $(id -u) -eq 0 ] && echo /usr || echo ~/.local)
+export NPROCS=$(grep -c proc /proc/cpuinfo)
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
 # Automatically start or attach to a tmux session
 if [ -z "$TMUX" ]; then
     # Check if there are any existing tmux sessions
@@ -37,7 +41,7 @@ alias js="cd ~/nz_work_space/js/ && ll -a"
 alias web="cd ~/nz_work_space/web-app/ && ll -a"
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && ll -a"
-alias v="clear && nvim ./"
+alias v="clear && nvim"
 alias alarc="v ~/dotfiles/.config/alacritty/alacritty.toml"
 alias fastkey="xset r rate 160 40 && echo faster  100ms with 50 word key"
 alias zshrc="nvim ~/dotfiles/.zshrc"
