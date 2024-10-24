@@ -4,14 +4,16 @@
 ##
 #eval "$(ssh-agent -s)"
 export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US:en
+export LC_ALL=en_US.UTF-8
 export EDITOR='nvim'
 export VISUAL='nvim'
 export PATH=$HOME/.local/bin:$PATH
 export PREFIX=$([ $(id -u) -eq 0 ] && echo /usr || echo ~/.local)
 export NPROCS=$(grep -c proc /proc/cpuinfo)
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
+eval "$(ssh-agent -s)"
+
 # Automatically start or attach to a tmux session
 if [ -z "$TMUX" ]; then
     # Check if there are any existing tmux sessions
