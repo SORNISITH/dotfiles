@@ -13,6 +13,11 @@ export PATH=$HOME/.local/bin:$PATH
 export PREFIX=$([ $(id -u) -eq 0 ] && echo /usr || echo ~/.local)
 export NPROCS=$(grep -c proc /proc/cpuinfo)
 eval "$(ssh-agent -s)"
+HISTSIZE=1000   # Keep 1000 commands in memory
+SAVEHIST=1000   # Save 1000 commands to the history file
+setopt APPEND_HISTORY
+HISTIGNORE="ls:cd:pwd"  # Ignore these commands
+setopt INC_APPEND_HISTORY
 
 # Automatically start or attach to a tmux session
 if [ -z "$TMUX" ]; then
