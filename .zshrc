@@ -45,10 +45,11 @@ alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
 alias work="cd ~/nz_work_space/ && ll -a"
 alias c="cd ~/nz_work_space/c-prog/ && ll -a"
 alias js="cd ~/nz_work_space/js/ && ll -a"
+alias ts="cd ~/nz_work_space/ts/ && ll -a"
 alias web="cd ~/nz_work_space/web-app/ && ll -a"
 alias tmuxrc="nvim ~/dotfiles/.tmux.conf"
 alias dot="cd ~/dotfiles && ll -a"
-alias v="clear && nvim"
+alias v="clear && nvim -n ."
 alias alarc="v ~/dotfiles/.config/alacritty/alacritty.toml"
 alias fastkey="xset r rate 160 40 && echo faster  100ms with 50 word key"
 alias zshrc="nvim ~/dotfiles/.zshrc"
@@ -57,7 +58,6 @@ alias vimrc="cd ~/.config/nvim && nvim"
 alias vim="nvim"
 alias cdd="cd ~/Desktop/ && ls"
 alias tree='cd . && ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
-
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -al'
