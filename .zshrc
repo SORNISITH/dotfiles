@@ -13,7 +13,8 @@ export PATH=$HOME/.local/bin:$PATH
 export PREFIX=$([ $(id -u) -eq 0 ] && echo /usr || echo ~/.local)
 export NPROCS=$(grep -c proc /proc/cpuinfo)
 export PATH=$PATH:/usr/lib/jvm/java-17-openjdk/bin
-
+export PATH="$HOME/.cargo/bin:$PATH"
+export LC_ALL=en_US.UTF-8
 eval "$(ssh-agent -s)"
 HISTSIZE=1000   # Keep 1000 commands in memory
 SAVEHIST=1000   # Save 1000 commands to the history file
