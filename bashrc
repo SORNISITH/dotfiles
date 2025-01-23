@@ -5,7 +5,6 @@ export HISTCONTROL=ignoreboth:erasedups
 export PAGER='most'
 export LANG=en_US.UTF-8
 export LANG=km_KH.UTF-8
-
 #Ibus settings if you need them
 #type ibus-setup in terminal to change settings and start th:quickly:quickle daemon
 #delete the hashtags of the next lines and restart

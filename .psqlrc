@@ -1,0 +1,49 @@
+-- Postgresql client configuration file.
+-- Copyright (C) 2016  Simon Ruderich
+-- This file is free software: you can redistribute it and/or modify
+-- it under the terms of the GNU General Public License as published by
+-- the Free Software Foundation, either version 3 of the License, or
+-- (at your option) any later version.
+--
+-- This file is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+--
+-- You should have received a copy of the GNU General Public License
+-- along with this file.  If not, see <http://www.gnu.org/licenses/>.
+
+
+-- Shut up \pset during this config script.
+\set QUIET on
+
+-- Automatically switch to vertical mode when the columns don't fit on screen.
+\pset expanded auto
+
+-- Use unicode characters for borders.
+\pset linestyle unicode
+
+-- Per default NULL values are not displayed, use a replacement string to
+-- prevent mistaken them for an empty string.
+\pset null ''
+
+-- Don't abort transactions in interactive mode when an error occurs. As the
+-- error is displayed no information is lost and this saves one from having to
+-- restart the transaction on a typo in a statement.
+\set ON_ERROR_ROLLBACK interactive
+
+-- "ignorespace ignoredups"
+\set HISTCONTROL ignoreboth
+-- Set path to history file and increase it.
+\set HISTFILE HISTFILE_PATH
+\set HISTSIZE 100000
+
+-- Add transaction status (%x) to prompt; show database name in bold green.
+\set PROMPT1 '%x%[%033[01;32m%]%/%[%033[00m%]%R%# '
+-- Remove database from second prompt to make it easily distinguishable from
+-- PROMPT1.
+\set PROMPT2 '%x%R%# '
+
+-- But display the normal psql welcome message.
+\set QUIET off
+
