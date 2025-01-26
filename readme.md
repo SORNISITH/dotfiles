@@ -14,3 +14,11 @@ sudo pacman -S p7zip unrar tar rsync git neofetch htop exfat-utils fuse-exfat nt
 curl -sS https://starship.rs/install.sh | sh ---starship
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 -- tmux package -- ctl + b I install
+
+fish install
+
+https://github.com/jorgebucaran/fisher
+https://github.com/jethrokuan/z
+Exa: https://the.exa.website/
+ghq: https://github.com/x-motemen/ghq
+peco: https://github.com/peco/peco

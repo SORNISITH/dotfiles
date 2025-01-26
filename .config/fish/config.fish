@@ -30,8 +30,9 @@ alias zimrc="nvim ~/dotfiles/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
 alias vim="nvim"
 alias fishrc="cd ~/.config/fish/ && nvim ./config.fish"
-alias ls="exa --icons -a"
-alias ll="exa -a"
+alias ls="eza  --icons -aF --group-directories-first "
+alias ll="eza  -alF -b -S --group-directories-first --icons"
+alias l="eza -a"
 set -gx EDITOR nvim
 
 set -gx PATH bin $PATH
