@@ -2,7 +2,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set fish_greeting "nz config fish"
+set -U fish_user_paths $HOME/.npm-global/bin $fish_user_paths
+set -U fish_user_paths $HOME/.cargo/bin: $fish_user_paths
+set -U fish_user_paths /usr/lib/jvm/java-17-openjdk/bin $fish_user_paths
+
+set fish_greeting ""
 set -gx TERM xterm-256color
 # theme
 set -g theme_color_scheme terminal-dark
