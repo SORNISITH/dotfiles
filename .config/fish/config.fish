@@ -1,13 +1,12 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
 set -U fish_user_paths $HOME/.npm-global/bin $fish_user_paths
+
 set -U fish_user_paths $HOME/.cargo/bin: $fish_user_paths
 set -U fish_user_paths /usr/lib/jvm/java-17-openjdk/bin $fish_user_paths
 
 set fish_greeting ""
-set -gx TERM xterm-256color
 # theme
 set -g theme_color_scheme terminal-dark
 set -g fish_prompt_pwd_dir_length 1
@@ -15,7 +14,7 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
-alias f="fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
+alias f="find . -type f | fzf --height 100% --layout reverse --border --preview 'batcat --color=always {}' --bind 'enter:become(nvim {})'"
 alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
@@ -53,6 +52,20 @@ set -gx PATH $GOPATH/bin $PATH
 # pnpm
 set -gx PNPM_HOME "/home/nz/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
-# pnpm end
+# pnpm end]
+#
+#!/usr/bin/env fish
+
+# Check if not inside a tmux session
+if not set -q TMUX
+    # Check if there are any existing tmux sessions
+    if tmux list-sessions >/dev/null 2>&1
+        # Attach to the last session
+        tmux attach-session -d
+    else
+        # Start a new session with a default name
+        tmux new-session -s default
+    end
+end
