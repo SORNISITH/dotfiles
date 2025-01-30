@@ -14,7 +14,7 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
-alias f="find . -type f | fzf --height 100% --layout reverse --border --preview 'batcat --color=always {}' --bind 'enter:become(nvim {})'"
+alias f="find . -type f | fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
 alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
