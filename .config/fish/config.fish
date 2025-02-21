@@ -19,7 +19,6 @@ alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
 alias work="cd ~/nz_work_space/ && ll -a"
-alias c="cd ~/nz_work_space/c-prog/ && ll -a"
 alias js="cd ~/nz_work_space/js/ && ll -a"
 alias ts="cd ~/nz_work_space/ts/ && ll -a"
 alias web="cd ~/nz_work_space/web-app/ && ll -a"
@@ -36,6 +35,7 @@ alias fishrc="cd ~/.config/fish/ && nvim ./config.fish"
 alias ls="eza  --icons -aF --group-directories-first "
 alias ll="eza  -alF -b -S --group-directories-first --icons"
 alias l="eza -a"
+alias d="ddgr"
 set -gx EDITOR nvim
 
 set -gx PATH bin $PATH
@@ -58,14 +58,6 @@ end
 #
 #!/usr/bin/env fish
 
-# Check if not inside a tmux session
-if not set -q TMUX
-    # Check if there are any existing tmux sessions
-    if tmux list-sessions >/dev/null 2>&1
-        # Attach to the last session
-        tmux attach-session -d
-    else
-        # Start a new session with a default name
-        tmux new-session -s default
-    end
-end
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
