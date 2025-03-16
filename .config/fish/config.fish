@@ -13,8 +13,18 @@ set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
+alias unlock="sudo rm /var/lib/pacman/db.lck"
 
-alias f="find . -type f | fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
+#arcolinux logout unlock
+alias rmlogoutlock="sudo rm /tmp/arcologout.lock"
+
+#which graphical card is working
+alias whichvga="/usr/local/bin/arcolinux-which-vga"
+
+#free
+alias free="free -mt"
+alias update="sudo pacman -Syu"
+alias f="find . -type f -not -path '*/.git/*' -not -path '*/node_modules/*' | fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
 alias ide="~/ide.sh"
 alias ssrc="v ~/dotfiles/.config/starship.toml"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
