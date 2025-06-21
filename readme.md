@@ -3,7 +3,7 @@ zimfw
 starship terminal stlye
 bat --for readme hgihtlight
 blurmyshell
-
+sudo pacman -S ttf-ubuntu-font-family ttf-fira-code nerd-fonts
 sudo pacman -S stow tmux neovim zsh bat xterm man
 sudo pacman -S p7zip unrar tar rsync git neofetch htop exfat-utils fuse-exfat ntfs-3g flac jasper aria2  
 #configuration
