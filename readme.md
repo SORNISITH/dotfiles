@@ -12,6 +12,20 @@ Install modern fonts for terminal usage:
 ```sh
 sudo pacman -S ttf-ubuntu-font-family ttf-fira-code nerd-fonts
 ```
+## 🔌 Tmux Plugin Manager
+
+Clone TPM (Tmux Plugin Manager):  
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Install tmux plugins (press inside tmux):  
+```
+Ctrl + B then I  
+or  Ctrl + Space then I
+```
+
+---
 
 ### 🧰 Utilities
 
@@ -41,7 +55,7 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 
 Link dotfiles using GNU Stow:  
 ```sh
-stow fish.......................................
+stow fish zsh nvim
 ```
 
 
@@ -56,20 +70,6 @@ curl -sS https://starship.rs/install.sh | sh
 
 ---
 
-## 🔌 Tmux Plugin Manager
-
-Clone TPM (Tmux Plugin Manager):  
-```sh
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-Install tmux plugins (press inside tmux):  
-```
-Ctrl + B then I  
-or  Ctrl + Space then I
-```
-
----
 
 ## 🐟 Fish Shell + Tools
 
@@ -84,9 +84,9 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 ```
 
 Useful Fish plugins:  
+https://fig.io/manual/fisher/install
 - [jethrokuan/z](https://github.com/jethrokuan/z) – directory jumping  
 - [fisher](https://github.com/jorgebucaran/fisher) – plugin manager
-
 ---
 
 ## 🔧 Other Recommended Tools
