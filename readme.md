@@ -89,6 +89,21 @@ https://fig.io/manual/fisher/install
 - [fisher](https://github.com/jorgebucaran/fisher) – plugin manager
 ---
 
+-- 
+fisher install 
+
+IlanCosman/tide@v5
+pure-fish/pure
+jorgebucaran/hydro
+jethrokuan/z
+PatrickF1/fzf.fish
+jorgebucaran/nvm.fish
+franciscolourenco/done
+jorgebucaran/replay.fish
+jorgebucaran/spark.fish 
+joseluisq/gitnow@2.10.0
+
+
 ## 🔧 Other Recommended Tools
 
 - [Exa](https://the.exa.website/) – modern replacement for `ls`
