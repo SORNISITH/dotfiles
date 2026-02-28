@@ -8,7 +8,6 @@ set -U fish_user_paths $HOME/.cargo/bin: $fish_user_paths
 set -U fish_user_paths /usr/lib/jvm/java-17-openjdk/bin $fish_user_paths
 # Fcitx5 for input method
 # IBus environment variables
-set -Ux MANPAGER "less -R -N --vi" # man pages
 set fish_greeting ""
 # theme
 set -g theme_color_scheme terminal-dark
@@ -29,7 +28,7 @@ alias q='exit'
 #free
 alias free="free -mt"
 alias update="sudo pacman -Syu"
-alias f="find . -type f -not -path '*/.git/*' -not -path '*/node_modules/*' | fzf --height 100% --layout reverse --border --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
+alias f="rg --files --hidden -g '!.git/*' -g '!node_modules/*' | fzf --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
 alias work="cd ~/nz_work_space/ && ll -a"
 alias js="cd ~/nz_work_space/js/ && ll -a"
