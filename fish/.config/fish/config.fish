@@ -2,10 +2,13 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 set -U fish_user_paths $HOME/.npm-global/bin $fish_user_paths
+set -Ux PATH ~/.npm-global/bin $PATH
 
 set -U fish_user_paths $HOME/.cargo/bin: $fish_user_paths
 set -U fish_user_paths /usr/lib/jvm/java-17-openjdk/bin $fish_user_paths
-
+# Fcitx5 for input method
+# IBus environment variables
+set -Ux MANPAGER "less -R -N --vi" # man pages
 set fish_greeting ""
 # theme
 set -g theme_color_scheme terminal-dark
@@ -14,13 +17,15 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 alias unlock="sudo rm /var/lib/pacman/db.lck"
-
+alias fasmdoc="jvim -R /usr/share/doc/fasm/fasm.txt"
 #arcolinux logout unlock
 alias rmlogoutlock="sudo rm /tmp/arcologout.lock"
-
+set -Ux DEBUGINFOD_URLS "https://debuginfod.archlinux.org"
 #which graphical card is working
 alias whichvga="/usr/local/bin/arcolinux-which-vga"
-
+alias jvim='NVIM_APPNAME="jvim" nvim'
+alias g='git'
+alias q='exit'
 #free
 alias free="free -mt"
 alias update="sudo pacman -Syu"
@@ -28,6 +33,8 @@ alias f="find . -type f -not -path '*/.git/*' -not -path '*/node_modules/*' | fz
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
 alias work="cd ~/nz_work_space/ && ll -a"
 alias js="cd ~/nz_work_space/js/ && ll -a"
+alias c="cd ~/Desktop/books/ && ll -a"
+alias ja="cd ~/nz_work_space/js/Java_icc_homework/"
 alias ts="cd ~/nz_work_space/ts/ && ll -a"
 alias web="cd ~/nz_work_space/web-app/ && ll -a"
 alias tmuxrc="nvim ~/.tmux.conf"
@@ -37,7 +44,6 @@ alias fastkey="xset r rate 160 40 && echo faster  100ms with 50 word key"
 alias zshrc="nvim ~/.zshrc"
 alias zimrc="nvim ~/.zimrc"
 alias vimrc="cd ~/.config/nvim && nvim"
-alias vim="nvim"
 alias fishrc="cd ~/.config/fish/ && nvim ./config.fish"
 alias ls="eza  --icons -aF --group-directories-first "
 alias ll="eza  -alF -b -S --group-directories-first --icons"
@@ -68,3 +74,6 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# opencode
+fish_add_path /home/nz/.opencode/bin
