@@ -26,6 +26,11 @@ alias jvim='NVIM_APPNAME="jvim" nvim'
 alias g='git'
 alias q='exit'
 #free
+#
+alias nznginx="sudo /usr/local/nginx/sbin/nginx"
+alias y="yazi"
+alias nznginxrc="sudo nvim /usr/local/nginx/conf/nginx.conf"
+alias gdb="gdb -x ~/c_gdb_init/.gdbinit "
 alias free="free -mt"
 alias update="sudo pacman -Syu"
 alias f="rg --files --hidden -g '!.git/*' -g '!node_modules/*' | fzf --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
