@@ -29,6 +29,7 @@ alias q='exit'
 #
 alias nznginx="sudo /usr/local/nginx/sbin/nginx"
 alias y="yazi"
+alias v="yazi"
 alias nznginxrc="sudo nvim /usr/local/nginx/conf/nginx.conf"
 alias gdb="gdb -x ~/c_gdb_init/.gdbinit "
 alias free="free -mt"
