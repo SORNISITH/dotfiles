@@ -1,5 +1,0 @@
-
-[plugin]
-[[plugin.prepend_previewers]]
-url = "*/"
-run = "eza-preview"
