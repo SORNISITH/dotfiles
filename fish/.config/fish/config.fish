@@ -3,7 +3,6 @@ if status is-interactive
 end
 set -U fish_user_paths $HOME/.npm-global/bin $fish_user_paths
 set -Ux PATH ~/.npm-global/bin $PATH
-
 set -U fish_user_paths $HOME/.cargo/bin: $fish_user_paths
 set -U fish_user_paths /usr/lib/jvm/java-17-openjdk/bin $fish_user_paths
 # Fcitx5 for input method
@@ -55,7 +54,9 @@ alias ll="eza  -alF -b -S --group-directories-first --icons"
 alias l="eza -a"
 alias d="ddgr"
 set -gx EDITOR nvim
-
+set -gx PATH ~/.npm-global/bin:$PATH
+set -gx PKG_CONFIG_PATH ~/opt/SDL3/lib64/pkgconfig/ $PKG_CONFIG_PATH
+set -gx PKG_CONFIG_PATH ~/opt/raylib5.5/lib64/pkgconfig/ $PKG_CONFIG_PATH
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
