@@ -1,19 +1,32 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+# ----------------------
+# Universal paths (persistent across all fish sessions)
+# ----------------------
+# NPM global bin
 set -U fish_user_paths $HOME/.npm-global/bin $fish_user_paths
-set -Ux PATH ~/.npm-global/bin $PATH
-set -U fish_user_paths $HOME/.cargo/bin: $fish_user_paths
+
+# Rust cargo bin
+set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+
+# Java JDK
 set -U fish_user_paths /usr/lib/jvm/java-17-openjdk/bin $fish_user_paths
-# Fcitx5 for input method
-# IBus environment variables
-set fish_greeting ""
-# theme
+
+# ----------------------
+# Greeting
+# ----------------------
+set fish_greeting "" # no greeting
+
+# ----------------------
+# Theme / prompt settings
+# ----------------------
 set -g theme_color_scheme terminal-dark
 set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
+
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias fasmdoc="jvim -R /usr/share/doc/fasm/fasm.txt"
 #arcolinux logout unlock
@@ -53,15 +66,23 @@ alias ls="eza  --icons -aF --group-directories-first "
 alias ll="eza  -alF -b -S --group-directories-first --icons"
 alias l="eza -a"
 alias d="ddgr"
+# ----------------------
+# Editor
+# ----------------------
 set -gx EDITOR nvim
-set -gx PATH ~/.npm-global/bin:$PATH
-set -gx PKG_CONFIG_PATH ~/opt/SDL3/lib64/pkgconfig/ $PKG_CONFIG_PATH
-set -gx PKG_CONFIG_PATH ~/opt/raylib5.5/lib64/pkgconfig/ $PKG_CONFIG_PATH
-set -gx PATH bin $PATH
-set -gx PATH ~/bin $PATH
-set -gx PATH ~/.local/bin $PATH
+# ----------------------
+# PATHs
+# ----------------------
+# NPM global
+set -gx PATH $HOME/.npm-global/bin $PATH
 
-# NodeJS
+# SDL3 & Raylib pkgconfig
+set -gx PKG_CONFIG_PATH ~/opt/SDL3/lib64/pkgconfig/ ~/opt/raylib5.5/lib64/pkgconfig/ $PKG_CONFIG_PATH
+
+# Local bin directories
+set -gx PATH bin ~/bin ~/.local/bin $PATH
+
+# NodeJS local bin
 set -gx PATH node_modules/.bin $PATH
 
 # Go
@@ -69,17 +90,13 @@ set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
 # pnpm
-set -gx PNPM_HOME "/home/nz/.local/share/pnpm"
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH $PNPM_HOME $PATH
 end
-# pnpm end]
-#
-#!/usr/bin/env fish
 
 # bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
-
+set -gx BUN_INSTALL "$HOME/.bun"
+set -gx PATH $BUN_INSTALL/bin $PATH
 # opencode
 fish_add_path /home/nz/.opencode/bin
