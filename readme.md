@@ -1,21 +1,16 @@
 # Dotfiles & Environment Setup
 
-## 🧠 Essentials
+# SOR NISITH
 
-### 🖥️ Terminal Multiplexer
+```sh
+sudo pacman -S stow tmux neovim zsh bat xterm man
+```
 
-**tmux** – can't live without tmux
+```tmux rg fd zoxide
+
+```
+
 yazi <https://yazi-rs.github.io/docs/next/tips/#smart-paste>
-
-```sh
-sudo pacman -S tmux
-```
-
-Install modern fonts for terminal usage:
-
-```sh
-sudo pacman -S ttf-ubuntu-font-family ttf-fira-code nerd-fonts
-```
 
 ## 🔌 Tmux Plugin Manager
 
@@ -37,11 +32,6 @@ or  Ctrl + Space then I
 ### 🧰 Utilities
 
 Install essential tools:
-
-```sh
-sudo pacman -S stow tmux neovim zsh bat xterm man
-```
-
 Additional useful tools:
 
 ```sh
@@ -68,18 +58,6 @@ Link dotfiles using GNU Stow:
 stow fish zsh nvim
 ```
 
----
-
-## 🚀 Prompt
-
-Install [Starship](https://starship.rs/):
-
-```sh
-curl -sS https://starship.rs/install.sh | sh
-```
-
----
-
 ## 🐟 Fish Shell + Tools
 
 Install [Fish shell](https://fishshell.com):
@@ -104,11 +82,10 @@ Useful Fish plugins:
 
 --
 fisher install
-
 IlanCosman/tide@v5
 pure-fish/pure
 jorgebucaran/hydro
-jethrokuan/z
+overlapwith zoxide (jethrokuan/z)
 PatrickF1/fzf.fish
 jorgebucaran/nvm.fish
 franciscolourenco/done
