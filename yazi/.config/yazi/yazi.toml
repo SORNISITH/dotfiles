@@ -7,5 +7,18 @@ prepend_previewers = [
   { name = "*.{bin,exe}", run = "hevi" },
 ]
 
+
 [manager]
 show_hidden = true
+
+[opener]
+pdf = [{ run = 'zathura "$@"', desc = "Open PDF" }]
+edit = [{ run = 'nvim "$@"', block = true, desc = "Open in Neovim" }]
+
+[open]
+rules = [
+  { mime = "application/pdf", use = "pdf" },
+  { mime = "text/*", use = "edit" },
+  # Fallback → everything else
+  { name = "*", use = "open" },
+]

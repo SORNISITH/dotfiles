@@ -9,7 +9,6 @@ set -U fish_user_paths $HOME/.npm-global/bin $fish_user_paths
 
 # Rust cargo bin
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
-
 # Java JDK
 set -U fish_user_paths /usr/lib/jvm/java-17-openjdk/bin $fish_user_paths
 zoxide init fish | source
@@ -28,6 +27,7 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
+alias qute='QT_QPA_PLATFORM=xcb qutebrowser'
 alias unlock="sudo rm -i /var/lib/pacman/db.lck"
 alias fasmdoc="jvim -R /usr/share/doc/fasm/fasm.txt"
 #arcolinux logout unlock
@@ -40,10 +40,11 @@ alias g='git'
 alias q='exit'
 #free
 #
+alias yazirc="nvim ~/.config/yazi/yazi.toml"
 alias nznginx="sudo /usr/local/nginx/sbin/nginx"
 alias v="yazi"
 alias nznginxrc="sudo nvim /usr/local/nginx/conf/nginx.conf"
-alias gdb="gdb -x ~/c_gdb_init/.gdbinit "
+#alias gdb="gdb -x ~/c_gdb_init/.gdbinit "
 alias free="free -mt"
 alias update="sudo pacman -Syu"
 alias f="rg --files --hidden -g '!.git/*' -g '!node_modules/*' | fzf --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
