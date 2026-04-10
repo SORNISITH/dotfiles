@@ -17,8 +17,23 @@ edit = [{ run = 'nvim "$@"', block = true, desc = "Open in Neovim" }]
 
 [open]
 rules = [
-  { mime = "application/pdf", use = "pdf" },
   { mime = "text/*", use = "edit" },
+  { mime = "image/*", run = 'xdg-open "$@"' },
+  { mime = "application/pdf", use = "pdf" },
   # Fallback → everything else
+  { name = "*.c", use = "edit" },
+  { name = "*.cpp", use = "edit" },
+  { name = "*.h", use = "edit" },
+  { name = "*.hpp", use = "edit" },
+  { name = "*.js", use = "edit" },
+  { name = "*.ts", use = "edit" },
+  { name = "*.py", use = "edit" },
+  { name = "*.lua", use = "edit" },
+  { name = "*.json", use = "edit" },
+  { name = "*.sh", use = "edit" },
+  { name = "*.html", use = "edit" },
+  { name = "*.css", use = "edit" },
+  { name = "*.md", use = "edit" },
   { name = "*", use = "open" },
+
 ]
