@@ -40,11 +40,16 @@ alias g='git'
 alias q='exit'
 #free
 #
+function ctfenv
+    source ~/ctf/bin/activate.fish
+end
 alias yazirc="nvim ~/.config/yazi/yazi.toml"
+alias ghidra_auto="python3 ~/ghidra.py"
 alias nznginx="sudo /usr/local/nginx/sbin/nginx"
 alias v="yazi"
 alias nznginxrc="sudo nvim /usr/local/nginx/conf/nginx.conf"
-#alias gdb="gdb -x ~/c_gdb_init/.gdbinit "
+alias gdbdash="gdb -x ~/c_gdb_init/.gdbinit"
+alias gdbgef="gdb -x ~/gef_gdb_init/.gdbinit"
 alias free="free -mt"
 alias update="sudo pacman -Syu"
 alias f="rg --files --hidden -g '!.git/*' -g '!node_modules/*' | fzf --preview 'bat --color=always {}' --bind 'enter:become(nvim {})'"
