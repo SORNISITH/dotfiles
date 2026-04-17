@@ -85,4 +85,3 @@ bind Down resize-pane -D 5
 # If this is your first time using tmux, you will need to press (Ctrl + Space) + I to fetch the plugins.
 run -b '~/.tmux/plugins/tpm/tpm'
 
-
