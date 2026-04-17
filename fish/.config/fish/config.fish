@@ -28,6 +28,7 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 alias qute='QT_QPA_PLATFORM=xcb qutebrowser'
+alias e='~/.config/emacs/bin/doom emacs .'
 alias unlock="sudo rm -i /var/lib/pacman/db.lck"
 alias fasmdoc="jvim -R /usr/share/doc/fasm/fasm.txt"
 #arcolinux logout unlock

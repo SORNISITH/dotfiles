@@ -36,5 +36,4 @@ rules = [
   { name = "*.css", use = "edit" },
   { name = "*.md", use = "edit" },
   { name = "*", use = "open" },
-
 ]
