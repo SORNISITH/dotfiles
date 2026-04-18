@@ -28,7 +28,6 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 alias qute='QT_QPA_PLATFORM=xcb qutebrowser'
-alias e='~/.config/emacs/bin/doom emacs .'
 alias unlock="sudo rm -i /var/lib/pacman/db.lck"
 alias fasmdoc="jvim -R /usr/share/doc/fasm/fasm.txt"
 #arcolinux logout unlock
@@ -37,13 +36,13 @@ set -Ux DEBUGINFOD_URLS "https://debuginfod.archlinux.org"
 #which graphical card is working
 alias whichvga="/usr/local/bin/arcolinux-which-vga"
 alias jvim='NVIM_APPNAME="jvim" nvim'
-alias g='git'
 alias q='exit'
 #free
 #
 function ctfenv
     source ~/ctf/bin/activate.fish
 end
+alias em="emacsclient -t -n "
 alias yazirc="nvim ~/.config/yazi/yazi.toml"
 alias ghidra_auto="python3 ~/ghidra.py"
 alias nznginx="sudo /usr/local/nginx/sbin/nginx"
@@ -108,6 +107,20 @@ fish_add_path $GOPATH/bin
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 fish_add_path $PNPM_HOME
 
+function vterm_printf
+
+    if begin
+            [ -n "$TMUX" ]; and string match -q -r "screen|tmux" "$TERM"
+        end
+        # tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$argv"
+    else if string match -q -- "screen*" "$TERM"
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$argv"
+    else
+        printf "\e]%s\e\\" "$argv"
+    end
+end
 # bun
 set -gx BUN_INSTALL "$HOME/.bun"
 fish_add_path $BUN_INSTALL/bin
