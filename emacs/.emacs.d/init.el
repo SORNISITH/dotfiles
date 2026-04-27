@@ -51,4 +51,6 @@
 (require 'init-pkgs)
 (require 'init-corfu)
 (require 'init-clipboard)
+(require 'init-pretty-fmt)
+(require 'init-orgmode-modern)
 ;;; init.el ends here

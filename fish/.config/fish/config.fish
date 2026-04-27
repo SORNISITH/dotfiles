@@ -43,7 +43,7 @@ function ctfenv
     source ~/ctf/bin/activate.fish
 end
 alias em="emacsclient -t "
-alias emacsrc="emacs ~/.emacs.d/init.el"
+alias emacsrc="cd ~/.emacs.d/ && emacs init.el"
 alias yazirc="nvim ~/.config/yazi/yazi.toml"
 alias ghidra_auto="python3 ~/ghidra.py"
 alias nznginx="sudo /usr/local/nginx/sbin/nginx"

@@ -92,8 +92,7 @@
        ;; package.
        (marginalia-mode))
 
-(use-package vterm
-  :ensure t)
+
 
 
 
