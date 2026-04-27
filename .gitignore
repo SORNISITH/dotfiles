@@ -6,10 +6,8 @@ fish/.config/fish/fish_plugins*
 .env
 disk
 history
-TAGS
-tramp
+
 places
-auto-save-list
 .env
 .env.*
 *.key
@@ -18,7 +16,7 @@ auto-save-list
 *.p12
 *.pfx
 *.kdbx
-.emacs.d/elpa/
+
 .ssh/
 .gnupg/
 .bash_history
