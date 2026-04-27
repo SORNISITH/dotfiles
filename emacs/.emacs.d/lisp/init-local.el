@@ -30,8 +30,6 @@
 ;; `M-x winner-undo` command to undo layout changes.
 (winner-mode)
 ;; Remember Commands And Files For Easy Access.
-
-
 (save-place-mode)
 (recentf-mode)
 

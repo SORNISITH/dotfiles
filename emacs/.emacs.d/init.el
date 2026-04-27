@@ -12,10 +12,11 @@
 
 (require 'package)
 ;; package sources
-(setq package-archives
-      '(("melpa" . "https://melpa.org/packages/")
-        ("gnu"   . "https://elpa.gnu.org/packages/")))
-
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
 ;; refresh packages if empty
@@ -40,15 +41,10 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror)
 
-;; FIX: remove broken line
-
-
-;; optional: if you really want to unbind function
-
 
 ;; install + load theme
 (use-package doom-themes
-  :config
+    :config
   (load-theme 'doom-tokyo-night t))
 ;;;require package configurations ~.emacs.d/lisp/*
 (require 'init-local nil t)
@@ -56,4 +52,3 @@
 (require 'init-corfu)
 (require 'init-clipboard)
 ;;; init.el ends here
-

@@ -2,20 +2,29 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Corfu (completion UI)
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode)
+  :custom
+  (tab-always-indent 'complete))
 
+;; Cape (extra completion sources)
+(use-package cape
+  :ensure t
+  :init
+  (add-hook 'completion-at-point-functions #'cape-file))
 
-;; Enable indentation and completion using the TAB key.
-(setq tab-always-indent 'complete)
-
-;; Make the completion suggest file paths.
-(add-hook 'completion-at-point-functions #'cape-file)
-
-;; Activate in buffer completion everywhere.
-(global-corfu-mode)
-
-;; enable corfu in terminal.
-;; This is needed until child frame support for terminal Emacs arrives.
-(unless (display-graphic-p) (corfu-terminal-mode +1))
+;; Terminal support (only if needed)
+(use-package corfu-terminal
+  :ensure t
+  :after corfu
+  :init
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1)))
 
 (provide 'init-corfu)
 ;;; init-corfu.el ends here
+
+
