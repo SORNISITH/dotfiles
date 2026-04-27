@@ -14,7 +14,7 @@
 (setq select-enable-primary t)
 (setq custom-safe-themes t)
 (menu-bar-mode -1)
-(load-theme 'doom-tokyo-night)
+
 (add-hook 'prog-mode-hook 'subword-mode)
 (windmove-default-keybindings)
 (global-display-line-numbers-mode)

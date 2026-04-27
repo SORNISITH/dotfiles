@@ -11,15 +11,45 @@
 (setq process-adaptive-read-buffering nil)
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; package sources
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu"   . "https://elpa.gnu.org/packages/")))
+
 (package-initialize)
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
+;; refresh packages if empty
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; install use-package if missing
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
 (require 'use-package)
 (setq use-package-always-ensure t)
-(setq backup-directory-alist '(("." . ,(concat user-emacs-directory "backups"))))
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(setq fmakunbound 'custom/wl-copy)
 
+
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
+;; backups
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name "backups" user-emacs-directory))))
+
+;; custom file
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file 'noerror)
+
+;; FIX: remove broken line
+
+
+;; optional: if you really want to unbind function
+
+
+;; install + load theme
+(use-package doom-themes
+  :config
+  (load-theme 'doom-tokyo-night t))
 ;;;require package configurations ~.emacs.d/lisp/*
 (require 'init-local nil t)
 (require 'init-pkgs)
