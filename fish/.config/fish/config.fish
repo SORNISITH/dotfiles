@@ -42,7 +42,7 @@ alias q='exit'
 function ctfenv
     source ~/ctf/bin/activate.fish
 end
-alias em="emacsclient -t -n "
+alias em="emacsclient -t "
 alias yazirc="nvim ~/.config/yazi/yazi.toml"
 alias ghidra_auto="python3 ~/ghidra.py"
 alias nznginx="sudo /usr/local/nginx/sbin/nginx"

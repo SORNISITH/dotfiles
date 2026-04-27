@@ -1,0 +1,6 @@
+(custom-set-variables
+ '(require-final-newline t)
+ '(load-prefer-newer t)
+ '(tab-width 4))
+
+

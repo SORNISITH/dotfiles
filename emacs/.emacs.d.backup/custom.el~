@@ -1,0 +1,18 @@
+(load-theme 'modus-vivendi)
+
+;; Use shift + arrow keys to change window.
+(windmove-default-keybindings)
+
+;; Record window configuration and enable
+;; `M-x winner-undo` command to undo layout changes.
+(winner-mode)
+
+;; Remember commands and files for easy access.
+(savehist-mode)
+(save-place-mode)
+(recentf-mode)
+;; Keep auto-save and backup files in one flat directory
+;; (instead of next to the original files)
+(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
+;; Keep auto-save and backup files in one flat directory
+;; (instead of next to the original files)

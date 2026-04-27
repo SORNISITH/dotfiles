@@ -1,0 +1,29 @@
+;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
+;; This file bootstraps the configuration, which is divided into
+;; a number of other files.
+;;; Code:
+
+;; Adjust garbage collection threshold for early startup (see use of gcmh below)
+(setq gc-cons-threshold (* 128 1024 1024))
+;; Process performance tuning
+(setq read-process-output-max (* 4 1024 1024))
+(setq process-adaptive-read-buffering nil)
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'use-package)
+(setq use-package-always-ensure t)
+(setq backup-directory-alist '(("." . ,(concat user-emacs-directory "backups"))))
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(setq fmakunbound 'custom/wl-copy)
+
+;;;require package configurations ~.emacs.d/lisp/*
+(require 'init-local nil t)
+(require 'init-pkgs)
+(require 'init-corfu)
+(require 'init-clipboard)
+;;; init.el ends here
+
