@@ -7,6 +7,9 @@ end
 # NPM global bin
 set -U fish_user_paths $HOME/.npm-global/bin $fish_user_paths
 
+set -Ux GEM_HOME $HOME/.gem
+set -Ux GEM_PATH $HOME/.gem
+fish_add_path $HOME/.gem/bin
 # Rust cargo bin
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 # Java JDK
@@ -57,6 +60,7 @@ alias f="rg --files --hidden -g '!.git/*' -g '!node_modules/*' | fzf --preview '
 alias kittyrc="cd ~/.config/kitty/ && v kitty.conf"
 alias work="cd ~/nz_work_space/ && ll -a"
 alias js="cd ~/nz_work_space/js/ && ll -a"
+alias lab="cd ~/nz_work_space/ && ll -a"
 alias c="cd ~/Desktop/books/ && ll -a"
 alias ja="cd ~/nz_work_space/js/Java_icc_homework/"
 alias ts="cd ~/nz_work_space/ts/ && ll -a"

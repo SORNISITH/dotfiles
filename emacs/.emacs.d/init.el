@@ -47,10 +47,18 @@
     :config
   (load-theme 'doom-tokyo-night t))
 ;;;require package configurations ~.emacs.d/lisp/*
-(require 'init-local nil t)
 (require 'init-pkgs)
+(require 'init-local nil t)
+(require 'init-eglot)
 (require 'init-corfu)
 (require 'init-clipboard)
 (require 'init-pretty-fmt)
 (require 'init-orgmode-modern)
+(require 'init-webmode)
 ;;; init.el ends here
+
+
+
+
+
+

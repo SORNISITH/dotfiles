@@ -1,20 +1,25 @@
 ;;; init-corfu.el --- Interactive completion in buffers -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-
-;; Corfu (completion UI)
 (use-package corfu
   :ensure t
   :init
   (global-corfu-mode)
   :custom
-  (tab-always-indent 'complete))
+  (corfu-auto 1)
+  (tab-always-indent 'complete)
+  :config
+  (with-eval-after-load 'cc-mode
+    (define-key c-mode-map (kbd "TAB") #'completion-at-point)
+    (define-key c++-mode-map (kbd "TAB") #'completion-at-point))
+  (define-key corfu-map (kbd "TAB") #'corfu-next)
+  (define-key corfu-map (kbd "S-TAB") #'corfu-previous))
 
-;; Cape (extra completion sources)
 (use-package cape
   :ensure t
   :init
-  (add-hook 'completion-at-point-functions #'cape-file))
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-dabbrev))
 
 ;; Terminal support (only if needed)
 (use-package corfu-terminal

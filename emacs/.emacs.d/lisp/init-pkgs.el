@@ -1,8 +1,16 @@
 ;;; package ---
 (use-package multiple-cursors
   :bind
-  (("M-/" . 'mc/mark-next-like-this)
-   ("M-;" . 'mc/mark-previous-like-this)))
+  (("M-o" . 'mc/mark-next-like-this)
+   ("M-i" . 'mc/mark-previous-like-this)))
+(use-package move-text
+  :ensure t
+  :config
+  (move-text-default-bindings)
+
+  ;; safer keybinds for tmux/terminal
+  (global-set-key (kbd "C-<up>") #'move-text-up)
+  (global-set-key (kbd "C-<down>") #'move-text-down))
 
 (use-package consult
   :custom
@@ -21,17 +29,8 @@
   :bind (("M-p" . crux-duplicate-current-line-or-region)))
 
 
-(use-package command-log-mode
-  :ensure t
-  :config
-  (setq command-log-mode-key-binding-open-log "C-c o"))
 
 
-
-
-(use-package keycast
-  :config
-  (keycast-mode-line-mode 1))
 
 (use-package vertico
   :custom
@@ -68,7 +67,7 @@
 
 (use-package embark
   :bind
-  (("M-."   . embark-act)         ;; Begin the embark process
+  (("M-RET"   . embark-act)         ;; Begin the embark process
    ("M-g"   . embark-dwim)        ;; good alternative: M-.
    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
 
@@ -92,9 +91,24 @@
        ;; package.
        (marginalia-mode))
 
-
-
-
+; smartparens (more powerful)
+;; (use-package smartparens
+;;   :ensure t
+;;   :init (smartparens-global-mode 1)
+;;   :custom
+;;   (sp-autoskip-closing-pair 'always)
+;;   (sp-autoinsert-pair t)
+;;   (sp-autoescape-string-quote t)
+;;   :bind
+;;   (:map smartparens-mode-map
+;;         ("C-M-f" . sp-forward-sexp)
+;;         ("C-M-b" . sp-backward-sexp)
+;;         ("C-M-d" . sp-down-sexp)
+;;         ("C-M-a" . sp-beginning-of-sexp)
+;;         ("C-M-e" . sp-end-of-sexp)
+;;         ("C-M-n" . sp-forward-symbol)
+;;         ("C-M-p" . sp-backward-symbol)
+;;         ("C-M-k" . sp-kill-sexp)))
 
 ;; Emacs minibuffer configurations.
 (use-package emacs

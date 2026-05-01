@@ -6,7 +6,7 @@
 (setq echo-keystrokes 0)
 (set-face-attribute 'mode-line nil
                     :height 200)
-
+(electric-pair-mode)
 (setq require-final-newline t)
 (setq load-prefer-newer t)
 (setq tab-width 4)
@@ -14,26 +14,25 @@
 (setq select-enable-primary t)
 (setq custom-safe-themes t)
 (menu-bar-mode -1)
-
 (add-hook 'prog-mode-hook 'subword-mode)
 (windmove-default-keybindings)
 (global-display-line-numbers-mode)
-
 ;; Activate flymake for every prog-mode buffers.
-(add-hook 'prog-mode-hook 'flymake-mode)
+;; (add-hook 'prog-mode-hook 'flymake-mode) 
 ;; Use F3 to jump to the next error.
 (global-set-key (kbd "<f3>") 'flymake-goto-next-error)
 ;; Make dired do something intelligent when two directories are shown
 (setq dired-dwim-target t)
 (setq delete-by-moving-to-trash t)
 ;; Record window configuration and enable
-;; `M-x winner-undo` command to undo layout changes.
 (winner-mode)
 ;; Remember Commands And Files For Easy Access.
 (save-place-mode)
 (recentf-mode)
 
 (global-set-key (kbd "C-c p") 'compile)
+
+
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-q") 'set-mark-command)
