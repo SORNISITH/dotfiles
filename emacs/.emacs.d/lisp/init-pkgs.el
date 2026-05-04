@@ -1,8 +1,16 @@
 ;;; package ---
+
+
+
+
+
 (use-package multiple-cursors
   :bind
   (("M-o" . 'mc/mark-next-like-this)
    ("M-i" . 'mc/mark-previous-like-this)))
+
+(use-package ox-reveal)
+
 (use-package move-text
   :ensure t
   :config

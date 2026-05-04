@@ -2,6 +2,7 @@
 (use-package org-modern
   :ensure t
   :config
+  
   ;; Add styles for NEXT status
   (setq org-modern-todo-faces
         '(("NEXT" :foreground "purple" :weight bold :background "orange")))

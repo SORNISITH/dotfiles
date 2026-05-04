@@ -5,7 +5,9 @@
 (setq suggest-key-bindings nil)
 (setq echo-keystrokes 0)
 (set-face-attribute 'mode-line nil
+
                     :height 200)
+(setq org-startup-with-inline-images t)
 (electric-pair-mode)
 (setq require-final-newline t)
 (setq load-prefer-newer t)
