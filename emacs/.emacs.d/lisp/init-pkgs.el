@@ -1,9 +1,5 @@
 ;;; package ---
 
-
-
-
-
 (use-package multiple-cursors
   :bind
   (("M-o" . 'mc/mark-next-like-this)

@@ -3,6 +3,9 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export LSP_USE_PLISTS=true #for emacs lsp
+
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -32,7 +35,7 @@ ZSH_THEME="gentoo"
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -52,7 +55,7 @@ ZSH_THEME="gentoo"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -154,8 +157,7 @@ alias fishrc='nvim ~/.config/fish/config.fish'
 alias zshrc='nvim ~/.zshrc'
 alias zimrc='nvim ~/.zimrc'
 alias vimrc='cd ~/.config/nvim && nvim'
-alias emrc='cd ~/.emacs.d/ && emacs init.el'
-alias em='emacsclient -t'
+alias emrc='cd ~/.emacs.d/ && em init.el'
 alias nvimrc='nvim ~/.config/nvim/'
 alias tmuxrc='nvim ~/.tmux.conf'
 
@@ -169,6 +171,19 @@ alias ls='eza --icons -aF --group-directories-first'
 alias ll='eza -alF -b -S --group-directories-first --icons'
 alias l='eza -a'
 
+em() {
+  if ! emacsclient -e "(emacs-pid)" >/dev/null 2>&1; then
+    echo "Starting Emacs daemon..."
+    emacs --daemon
+    sleep 1
+  fi
+
+  if [ "$#" -eq 0 ]; then
+    emacsclient -t
+  else
+    emacsclient -t "$@"
+  fi
+}
 ctfenv() {
     source ~/ctf/bin/activate
 }

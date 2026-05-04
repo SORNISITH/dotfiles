@@ -1,6 +1,6 @@
 (use-package eglot
   :ensure t
-  :hook ((c-mode c++-mode ruby-mode) . eglot-ensure)
+  :hook ((c-mode c++-mode ruby-mode vue-mode) . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
                '((c++-mode c-mode) . ("clangd"
@@ -11,6 +11,9 @@
   (add-to-list 'eglot-server-programs
                '(ruby-mode . ("solargraph" "stdio")))
 
+  (add-to-list 'eglot-server-programs
+               '(vue-mode . ("vue-language-server" "--stdio")))
+  
   ;; disable inlay hints properly
   (add-hook 'eglot-managed-mode-hook
             (lambda ()

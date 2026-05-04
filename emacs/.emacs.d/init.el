@@ -5,10 +5,11 @@
 ;;; Code:
 
 ;; Adjust garbage collection threshold for early startup (see use of gcmh below)
-(setq gc-cons-threshold (* 128 1024 1024))
 ;; Process performance tuning
-(setq read-process-output-max (* 4 1024 1024))
+(setq read-process-output-max (* 8 1024 1024))
 (setq process-adaptive-read-buffering nil)
+(setq gc-cons-threshold (* 128 1024 1024))
+
 
 (require 'package)
 ;; package sources
@@ -49,10 +50,10 @@
 ;;;require package configurations ~.emacs.d/lisp/*
 (require 'init-pkgs)
 (require 'init-local nil t)
-(require 'init-eglot)
 (require 'init-corfu)
 (require 'init-clipboard)
 (require 'init-pretty-fmt)
 (require 'init-orgmode-modern)
 (require 'init-webmode)
+(require 'init-lsp)
 ;;; init.el ends here
