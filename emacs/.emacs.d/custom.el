@@ -11,7 +11,7 @@
 	  lsp-pyright lsp-tailwindcss magit marginalia move-text
 	  multiple-cursors orderless org-modern ox-reveal pdf-tools
 	  perl-ts-mode reformatter ripgrep smartparens typescript-mode
-	  vertico vue3-mode web-mode)))
+	  vertico vue-mode vue3-mode web-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="gentoo"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -60,7 +60,7 @@ ZSH_THEME="robbyrussell"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -77,24 +77,30 @@ plugins=(
     git
     bundler
     dotenv
-    macos
-    rake
-    rbenv
-    ruby
     tmux
+    tldr
+    zoxide
+    aliases
+    zsh-autosuggestions
 )
-
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # nvm for zsh
 # Preferred editor for local and remote sessions 
 export PKG_CONFIG_PATH="$HOME/opt/SDL3/lib64/pkgconfig:$HOME/opt/raylib5.5/lib64/pkgconfig:$PKG_CONFIG_PATH"
+
+# npm global
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# local bins
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
