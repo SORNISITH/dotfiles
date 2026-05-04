@@ -56,9 +56,3 @@
 (require 'init-orgmode-modern)
 (require 'init-webmode)
 ;;; init.el ends here
-
-
-
-
-
-
