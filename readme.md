@@ -1,13 +1,16 @@
-# Dotfiles & my custom Environment Setup
-# SOR NISITH 
+# Dotfiles & my custom Environment Setup < SOR NISITH >
+
+## Install some pkgs (linux)
 ---
-```sh
-stow tmux neovim zsh bat xterm man rg fd zoxide p7zip unrar tar rsync git neofetch htop exfat-utils fuse-exfat ntfs-3g flac jasper aria2
+```bash
+-> stow tmux neovim zsh bat xterm man rg fd zoxide p7zip unrar tar rsync git 
+-> htop exfat-utils fuse-exfat ntfs-3g flac jasper aria2 btop fastfetch cpufetch
 ```
 
 ---
-# HOW TO SETUP
-```sh
-stow zsh emacs ... etc
+## HOW TO SETUP
+```bash
+-> stow zsh emacs ... etc
 ```
+
 
