@@ -1,5 +1,14 @@
 (message "Loading from PKGs")
 
+
+;; (use-package treesit-auto
+;;   :custom
+;;   (treesit-auto-install 'prompt)
+;;   :config
+;;   (setq treesit-auto-langs '(javascript typescript tsx css html ))
+;;   (treesit-auto-add-to-auto-mode-alist '(javascript typescript tsx css html))
+;;   (global-treesit-auto-mode))
+
 ;; (use-package company)  ;; code completion
 
 (use-package hydra) ;; hydra to create transient keybindings that "stick around" until you intentionally dismiss
@@ -44,9 +53,9 @@
   :custom
   (vertico-count 14)  ;; limit to a fixed size
   :bind (:map vertico-map
-    ;; Use page-up/down to scroll vertico buffer, like ivy does by default.
-    ("<prior>" . 'vertico-scroll-down)
-    ("<next>"  . 'vertico-scroll-up))
+	      ;; Use page-up/down to scroll vertico buffer, like ivy does by default.
+	      ("<prior>" . 'vertico-scroll-down)
+	      ("<next>"  . 'vertico-scroll-up))
   :init
   ;; Activate vertico
   (vertico-mode))
@@ -56,7 +65,7 @@
   :after vertico
   :ensure nil  ;; no need to install, it comes with vertico
   :bind (:map vertico-map
-    ("DEL" . vertico-directory-delete-char)))
+	      ("DEL" . vertico-directory-delete-char)))
 
 
 (use-package orderless
@@ -86,20 +95,19 @@
 (require 'vertico-directory)
 
 (use-package marginalia
-       ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
-       ;; available in the *Completions* buffer, add it to the
-       ;; `completion-list-mode-map'.
-       :bind (:map minibuffer-local-map
+  ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
+  ;; available in the *Completions* buffer, add it to the
+  ;; `completion-list-mode-map'.
+  :bind (:map minibuffer-local-map
               ("M-A" . marginalia-cycle))
 
-       ;; The :init section is always executed.
-       :init
-       ;; Marginalia must be activated in the :init section of use-package such that
-       ;; the mode gets enabled right away. Note that this forces loading the
-       ;; package.
-       (marginalia-mode))
-
-; smartparens (more powerful)
+  ;; The :init section is always executed.
+  :init
+  ;; Marginalia must be activated in the :init section of use-package such that
+  ;; the mode gets enabled right away. Note that this forces loading the
+  ;; package.
+  (marginalia-mode))
+					; smartparens (more powerful)
 ;; (use-package smartparens
 ;;   :ensure t
 ;;   :init (smartparens-global-mode 1)
@@ -134,5 +142,4 @@
    '(read-only t cursor-intangible t face minibuffer-prompt)))
 
 (provide 'init-pkgs)
-
 ;;; init-pkgs.el ends here
