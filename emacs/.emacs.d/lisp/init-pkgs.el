@@ -1,22 +1,30 @@
-;;; package ---
+(message "Loading from PKGs")
 
-(use-package multiple-cursors
+;; (use-package company)  ;; code completion
+
+(use-package hydra) ;; hydra to create transient keybindings that "stick around" until you intentionally dismiss
+
+(use-package projectile) ;; project 
+
+(use-package yasnippet :config (yas-global-mode)) ;; good autosnipset
+
+(use-package flycheck :ensure t :init (global-flycheck-mode)) ;; check error in copiled time
+
+(use-package multiple-cursors  ;; fk off multi cursor what i need
   :bind
   (("M-o" . 'mc/mark-next-like-this)
    ("M-i" . 'mc/mark-previous-like-this)))
 
-(use-package ox-reveal)
+(use-package ox-reveal)   ;; org mode for reveal output
 
-(use-package move-text
+(use-package move-text    ;; drag text move around like vim alt + j/k
   :ensure t
   :config
   (move-text-default-bindings)
-
-  ;; safer keybinds for tmux/terminal
   (global-set-key (kbd "C-<up>") #'move-text-up)
   (global-set-key (kbd "C-<down>") #'move-text-down))
 
-(use-package consult
+(use-package consult      ;;  Completion-
   :custom
   ;; Disable preview
   (consult-preview-key nil)
@@ -31,10 +39,6 @@
 (use-package crux   ;;;  duplicate line
   :ensure t
   :bind (("M-p" . crux-duplicate-current-line-or-region)))
-
-
-
-
 
 (use-package vertico
   :custom
@@ -122,7 +126,6 @@
   (context-menu-mode t)
   ;; Support opening new minibuffers from inside existing minibuffers.
   (enable-recursive-minibuffers t)
-  ;; Hide commands in M-x which do not work in the current mode.  Vertico
   ;; commands are hidden in normal buffers. This setting is useful beyond
   ;; Vertico.
   (read-extended-command-predicate #'command-completion-default-include-p)

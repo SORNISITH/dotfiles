@@ -22,7 +22,7 @@
 ;; Activate flymake for every prog-mode buffers.
 ;; (add-hook 'prog-mode-hook 'flymake-mode) 
 ;; Use F3 to jump to the next error.
-(global-set-key (kbd "<f3>") 'flymake-goto-next-error)
+;; (global-set-key (kbd "<f3>") 'flymake-goto-next-error)
 ;; Make dired do something intelligent when two directories are shown
 (setq dired-dwim-target t)
 (setq delete-by-moving-to-trash t)
@@ -33,8 +33,6 @@
 (recentf-mode)
 
 (global-set-key (kbd "C-c p") 'compile)
-
-
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "C-q") 'set-mark-command)

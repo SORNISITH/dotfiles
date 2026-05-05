@@ -10,7 +10,6 @@
 (setq process-adaptive-read-buffering nil)
 (setq gc-cons-threshold (* 128 1024 1024))
 
-
 (require 'package)
 ;; package sources
 (require 'package)
@@ -31,7 +30,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;; backups
@@ -42,12 +40,12 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror)
 
-
 ;; install + load theme
 (use-package doom-themes
     :config
   (load-theme 'doom-tokyo-night t))
 ;;;require package configurations ~.emacs.d/lisp/*
+
 (require 'init-pkgs)
 (require 'init-local nil t)
 (require 'init-corfu)
@@ -55,5 +53,6 @@
 (require 'init-pretty-fmt)
 (require 'init-orgmode-modern)
 (require 'init-webmode)
-(require 'init-lsp)
+;; (require 'init-lsp)
+(require 'init-eglot)
 ;;; init.el ends here
