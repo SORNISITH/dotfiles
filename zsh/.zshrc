@@ -157,10 +157,10 @@ alias fishrc='nvim ~/.config/fish/config.fish'
 alias zshrc='nvim ~/.zshrc'
 alias zimrc='nvim ~/.zimrc'
 alias vimrc='cd ~/.config/nvim && nvim'
-alias emrc='cd ~/.emacs.d/ && em init.el'
+alias emrc='cd ~/.emacs.d/ && em user-custom-configs-init.el'
 alias nvimrc='nvim ~/.config/nvim/'
 alias tmuxrc='nvim ~/.tmux.conf'
-
+alias q='exit'
 # --- tools ---
 alias fasmdoc='jvim -R /usr/share/doc/fasm/fasm.txt'
 alias ghidra_auto='python3 ~/ghidra.py'
@@ -188,3 +188,6 @@ ctfenv() {
     source ~/ctf/bin/activate
 }
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
