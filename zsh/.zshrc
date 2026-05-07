@@ -157,7 +157,6 @@ alias fishrc='nvim ~/.config/fish/config.fish'
 alias zshrc='nvim ~/.zshrc'
 alias zimrc='nvim ~/.zimrc'
 alias vimrc='cd ~/.config/nvim && nvim'
-alias emrc='cd ~/.emacs.d/ && em user-custom-configs-init.el'
 alias nvimrc='nvim ~/.config/nvim/'
 alias tmuxrc='nvim ~/.tmux.conf'
 alias q='exit'
@@ -171,19 +170,6 @@ alias ls='eza --icons -aF --group-directories-first'
 alias ll='eza -alF -b -S --group-directories-first --icons'
 alias l='eza -a'
 
-em() {
-  if ! emacsclient -e "(emacs-pid)" >/dev/null 2>&1; then
-    echo "Starting Emacs daemon..."
-    emacs --daemon
-    sleep 1
-  fi
-
-  if [ "$#" -eq 0 ]; then
-    emacsclient -t
-  else
-    emacsclient -t "$@"
-  fi
-}
 ctfenv() {
     source ~/ctf/bin/activate
 }
