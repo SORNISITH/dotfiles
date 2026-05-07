@@ -173,7 +173,15 @@ alias l='eza -a'
 ctfenv() {
     source ~/ctf/bin/activate
 }
-
+em() {
+    if emacsclient -e "(emacs-pid)" >/dev/null 2>&1; then
+        emacsclient -c -a ""
+    else
+        emacs --daemon
+        sleep 1
+        emacsclient -c -a ""
+    fi
+}
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
