@@ -164,7 +164,7 @@ alias q='exit'
 alias fasmdoc='jvim -R /usr/share/doc/fasm/fasm.txt'
 alias ghidra_auto='python3 ~/ghidra.py'
 alias whichvga='/usr/local/bin/arcolinux-which-vga'
-
+alias nyxt11='GDK_BACKEND=x11 nyxt'
 # --- file listing (modern eza) ---
 alias ls='eza --icons -aF --group-directories-first'
 alias ll='eza -alF -b -S --group-directories-first --icons'
@@ -173,11 +173,21 @@ alias l='eza -a'
 ctfenv() {
     source ~/ctf/bin/activate
 }
+
 em() {
     if emacsclient -e "(emacs-pid)" >/dev/null 2>&1; then
         emacsclient -c -a ""
     else
         emacs --daemon
+        sleep 1
+        emacsclient -c -a ""
+    fi
+}
+emc() {
+    if emacsclient -e "(emacs-pid)" >/dev/null 2>&1; then
+        emacsclient -c -a ""
+    else
+        emacs --init-directory=~/.config/emacs/ --daemon
         sleep 1
         emacsclient -c -a ""
     fi
